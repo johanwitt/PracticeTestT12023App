@@ -62,5 +62,59 @@ namespace PracticeTestT12023
 
             dataGridView1.DataSource = data.Tables[0]; // display into the datagridview
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            conn.Open(); // opens database
+
+            // select * from Company_Details where Revenue_Growth > 0
+
+            string query = "select * from Company_Details where Revenue_Growth > 0";
+
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+
+            DataSet data = new DataSet();
+
+            da.Fill(data);
+            conn.Close();
+
+            dataGridView1.DataSource = data.Tables[0]; // display into the datagridview
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            conn.Open(); // opens database
+
+            // select * from Company_Details where Industry = 'Automotive'
+
+            string query = "select * from Company_Details where Industry = 'Automotive'";
+
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+
+            DataSet data = new DataSet();
+
+            da.Fill(data);
+            conn.Close();
+
+            dataGridView1.DataSource = data.Tables[0]; // display into the datagridview
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            conn.Open(); // opens database
+
+            // select * from Company_Details where Foundation_date  between 1970-01-01 and 1979-12-12
+
+            string query = "select * from Company_Details where Foundation_date  between '1970-01-01' and '1979-12-12'";
+
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+
+            DataSet data = new DataSet();
+
+            da.Fill(data);
+            conn.Close();
+
+            dataGridView1.DataSource = data.Tables[0]; // display into the datagridview
+        }
     }
 }
